@@ -20,9 +20,9 @@ export const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  max-width: 1400px;
-  width: 100%;
-  gap: 3.5rem;
+  width: 55%;
+ 
+ 
 `
 
 export const HeroTextContainer = styled.div`
@@ -91,11 +91,12 @@ export const InfoIcon2 = styled.div`
   height: 3rem;
   background-color: #2e2e2e ;
   margin-left: 50px;
-  
+
 
   img{
     width: 1rem;
     height: 1rem;
+    
   }
   
 `
@@ -152,6 +153,10 @@ export const HeroImage = styled.img`
   width: 476px;
   height: auto;
   margin-right: -160px;
+  @media(max-width: 758px){
+    display: none;
+  }
+  
 `
 //container body
 export const ContainerBody = styled.div`
