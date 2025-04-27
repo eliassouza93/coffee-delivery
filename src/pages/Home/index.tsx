@@ -1,17 +1,43 @@
-import { Actions, AddToCartButton, Container, ContainerBody, HeroImage, HeroImageContainer, HeroSection, HeroSubtitle, HeroTextContainer, HeroTitle, InfoIcon1, InfoIcon2, InfoIcon3, InfoIcon4, InfoItem, InfoItems, InfoText, Price, ProductCard, ProductsGrid, QuantityControl, Tag } from "./styles";
-import cofffe from '../../../images/coffeeGG.png'
-import carrinho from '../../../images//imgHome/carrinhoCompra.png'
-import relogio from '../../../images//imgHome/relogio.png'
-import embalagem from '../../../images//imgHome/embalagem.png'
-import cafe from '../../../images//imgHome/cafe.png'
-import data from '../../../data.json'
-import { CoffeeType } from "../../coffeeTyle";
+import { Actions, Container, ContainerBody, HeroImage, HeroImageContainer, HeroSection, HeroSubtitle, HeroTextContainer, HeroTitle, InfoIcon1, InfoIcon2, InfoIcon3, InfoIcon4, InfoItem, InfoItems, InfoText, Price, ProductCard, ProductsGrid, QuantityControl, Tag,AddToCartButton } from "./styles";
+import cofffe from '../../../images/coffeeGG.png';
+import carrinho from '../../../images//imgHome/carrinhoCompra.png';
+import relogio from '../../../images//imgHome/relogio.png';
+import embalagem from '../../../images//imgHome/embalagem.png';
+import cafe from '../../../images//imgHome/cafe.png';
+import data from '../../../data.json';
+import { CartItem, CoffeeType } from "../../coffeeTyle";
+import { useState } from "react";
 
-const Produtos: CoffeeType[] = data.coffees
+const Produtos: CoffeeType[] = data.coffees;
 
 export function Home() {
+    const [cart, setCart] = useState<CartItem[]>([]);
 
-    
+    const AddQuantity = (id: string) => {
+        setCart(prevCart => {
+            const itemNoCarrinho = prevCart.find(item => item.id === id);
+            if (itemNoCarrinho) {
+                return prevCart.map(item =>
+                    item.id === id
+                        ? { ...item, quantity: item.quantity + 1 }
+                        : item
+                );
+            } else {
+                const produtoToAdd = Produtos.find(p => p.id === id);
+                return produtoToAdd ? [...prevCart, { ...produtoToAdd, quantity: 1 }] : prevCart;
+            }
+        });
+    }
+
+    const DecreaseQuantity = (id: string) => {
+        setCart(prevCart => {
+            return prevCart.map(item =>
+                item.id === id && item.quantity > 1
+                    ? { ...item, quantity: item.quantity - 1 }
+                    : item
+            )
+        })
+    }
 
     return (
         <Container>
@@ -56,10 +82,8 @@ export function Home() {
                 </HeroImageContainer>
             </HeroSection>
 
-
             <ContainerBody>
                 <h1>Nossos cafés</h1>
-
                 <ProductsGrid>
                     {Produtos.map((produto: CoffeeType) => (
                         <ProductCard key={produto.id}>
@@ -76,22 +100,19 @@ export function Home() {
 
                             <Actions>
                                 <Price>R$ {produto.price.toFixed(2)}</Price>
-
                                 <QuantityControl>
-                                    <button>-</button>
-                                    <span>1</span>
-                                    <button>+</button>
+                                    <button onClick={() => DecreaseQuantity(produto.id)}>-</button>
+                                    <span>{cart.find(item => item.id === produto.id)?.quantity || 0}</span>
+                                    <button onClick={() => AddQuantity(produto.id)}>+</button>
                                 </QuantityControl>
-
                                 <AddToCartButton>
-                                    <img src={carrinho} alt="" />
+                                    <img src={carrinho}/>
                                 </AddToCartButton>
-
                             </Actions>
                         </ProductCard>
                     ))}
                 </ProductsGrid>
             </ContainerBody>
         </Container>
-    )
+    );
 }

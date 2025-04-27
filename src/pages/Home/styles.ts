@@ -156,7 +156,8 @@ export const HeroImage = styled.img`
 //container body
 export const ContainerBody = styled.div`
   padding: 2rem;
-  width: 70%;
+  width: 58%;
+
   h1 {
     font-size: 2rem;
     margin-bottom: 2rem;
@@ -213,39 +214,67 @@ export const Actions = styled.div`
   display: flex;
   align-items: center;
   gap: 0.5rem;
-`
+  width: 100%;  
+  justify-content: space-between;  
+`;
 
 export const Price = styled.span`
   font-weight: bold;
   font-size: 1.5rem;
   color: ${({ theme }) => theme.colors['base-text']};
-`
+  white-space: nowrap;  
+`;
 
 export const QuantityControl = styled.div`
-  background: ${({ theme }) => theme.colors['base-button']};
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 0.1rem;
+  background-color: ${({ theme }) => theme.colors['purple']};  
   border-radius: 6px;
   padding: 0.5rem;
+ 
+ 
 
   button {
-    background: transparent;
-    border: none;
+    background-color: transparent;
+    color: ${({ theme }) => theme.colors.white};  
     font-size: 1rem;
-    color: ${({ theme }) => theme.colors['purple']};
+    font-weight: bold;
+    border: none;
     cursor: pointer;
+    width: 1.5rem;
+    height: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 0;
+    color: black;
+
+    &:hover {
+      background-color: ${({ theme }) => theme.colors['purple']};  
+    }
+
+    &:disabled {
+      color: ${({ theme }) => theme.colors['base-label']};
+      cursor: not-allowed;
+    }
   }
 
   span {
-    width: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: ${({ theme }) => theme.colors.white};  
+    padding: 0 0.5rem;
+    min-width: 1.5rem;
     text-align: center;
+    color: black;
   }
-`
+`;
 
 export const AddToCartButton = styled.button`
-  width: 2.375rem;       
-  height: 2.375rem;     
+ 
+  height: 38px;
   background: ${({ theme }) => theme.colors['purple-dark']};
   border: none;
   border-radius: 6px;
@@ -253,11 +282,13 @@ export const AddToCartButton = styled.button`
   align-items: center;
   justify-content: center;
   cursor: pointer;
-   display: block;
+  display: block;
+  margin-left: 0.5rem;  
+  width: 42px;
+ 
   img {
-    width: 1.125rem;    
-    height: 1.125rem;     
-   
-
+    width: 1.225rem;
+    height: 1.225rem;
+    margin-bottom: -3px;
   }
-`
+`;

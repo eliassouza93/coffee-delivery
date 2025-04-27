@@ -8,10 +8,12 @@ export const Container = styled.div`
     width: 100%;
     justify-content: center;
     align-items: center;
+  
 `
 export const Box = styled.div`
     background-color: aliceblue;
-    width: 55%;
+    width: 47%;
+  
 
     img{
         width: 95px;
@@ -44,6 +46,7 @@ export const ContainerCarrinho = styled.div`
         justify-content: center;
         border-radius: 5px;
         margin: 0 12px;
+        
 
     }
 
