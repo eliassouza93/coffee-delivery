@@ -4,6 +4,7 @@ import { mixins } from '../../styles/mix'
 
 export const Container = styled.div`
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   width: 100%;
@@ -58,6 +59,9 @@ export const InfoItem = styled.div`
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  width: 170%;
+  
+
 `
 
 export const InfoIcon1 = styled.div`
@@ -69,7 +73,7 @@ export const InfoIcon1 = styled.div`
   width: 3rem;
   height: 3rem;
   background-color: ${(props => props.theme.colors['yellow-dark'])};
-  
+
 
   img{
     width: 1rem;
@@ -86,7 +90,7 @@ export const InfoIcon2 = styled.div`
   width: 3rem;
   height: 3rem;
   background-color: #2e2e2e ;
-
+  margin-left: 50px;
   
 
   img{
@@ -104,6 +108,7 @@ export const InfoIcon3 = styled.div`
   width: 3rem;
   height: 3rem;
   background-color: ${(props => props.theme.colors['yellow'])};
+ 
   
 
   img{
@@ -121,7 +126,7 @@ export const InfoIcon4 = styled.div`
   width: 3rem;
   height: 3rem;
   background-color: ${(props => props.theme.colors['purple'])};
-  
+  margin-left: 50px;
 
   img{
     width: 1rem;
@@ -147,4 +152,112 @@ export const HeroImage = styled.img`
   width: 476px;
   height: auto;
   margin-right: -160px;
+`
+//container body
+export const ContainerBody = styled.div`
+  padding: 2rem;
+  width: 70%;
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: ${({ theme }) => theme.colors['base-title']};
+  }
+`
+
+export const ProductsGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(256px, 1fr));
+  gap: 2rem;
+`
+
+export const ProductCard = styled.div`
+  background: ${({ theme }) => theme.colors['base-card']};
+  border-radius: 6px 36px;
+  padding: 2rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  img {
+    width: 120px;
+    margin-top: -40px;
+  }
+
+  h2 {
+    margin-top: 1rem;
+    font-size: 1.25rem;
+    color: ${({ theme }) => theme.colors['base-subtitle']};
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: ${({ theme }) => theme.colors['base-label']};
+    margin-top: 0.5rem;
+    margin-bottom: 2rem;
+  }
+`
+
+export const Tag = styled.span`
+  background: ${({ theme }) => theme.colors['yellow-light']};
+  color: ${({ theme }) => theme.colors['yellow-dark']};
+  font-size: 0.625rem;
+  font-weight: bold;
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+`
+
+export const Actions = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+`
+
+export const Price = styled.span`
+  font-weight: bold;
+  font-size: 1.5rem;
+  color: ${({ theme }) => theme.colors['base-text']};
+`
+
+export const QuantityControl = styled.div`
+  background: ${({ theme }) => theme.colors['base-button']};
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 6px;
+  padding: 0.5rem;
+
+  button {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    color: ${({ theme }) => theme.colors['purple']};
+    cursor: pointer;
+  }
+
+  span {
+    width: 1.5rem;
+    text-align: center;
+  }
+`
+
+export const AddToCartButton = styled.button`
+  width: 2.375rem;       
+  height: 2.375rem;     
+  background: ${({ theme }) => theme.colors['purple-dark']};
+  border: none;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+   display: block;
+  img {
+    width: 1.125rem;    
+    height: 1.125rem;     
+   
+
+  }
 `

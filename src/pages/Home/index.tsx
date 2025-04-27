@@ -1,11 +1,18 @@
-import { Container, HeroImage, HeroImageContainer, HeroSection, HeroSubtitle, HeroTextContainer, HeroTitle, InfoIcon1,InfoIcon2,InfoIcon3,InfoIcon4, InfoItem, InfoItems, InfoText } from "./styles";
+import { Actions, AddToCartButton, Container, ContainerBody, HeroImage, HeroImageContainer, HeroSection, HeroSubtitle, HeroTextContainer, HeroTitle, InfoIcon1, InfoIcon2, InfoIcon3, InfoIcon4, InfoItem, InfoItems, InfoText, Price, ProductCard, ProductsGrid, QuantityControl, Tag } from "./styles";
 import cofffe from '../../../images/coffeeGG.png'
 import carrinho from '../../../images//imgHome/carrinhoCompra.png'
 import relogio from '../../../images//imgHome/relogio.png'
 import embalagem from '../../../images//imgHome/embalagem.png'
 import cafe from '../../../images//imgHome/cafe.png'
+import data from '../../../data.json'
+import { CoffeeType } from "../../coffeeTyle";
+
+const Produtos: CoffeeType[] = data.coffees
 
 export function Home() {
+
+    
+
     return (
         <Container>
             <HeroSection>
@@ -48,6 +55,43 @@ export function Home() {
                     <HeroImage src={cofffe} alt="Coffee" />
                 </HeroImageContainer>
             </HeroSection>
+
+
+            <ContainerBody>
+                <h1>Nossos cafés</h1>
+
+                <ProductsGrid>
+                    {Produtos.map((produto: CoffeeType) => (
+                        <ProductCard key={produto.id}>
+                            <img src={produto.image} alt={produto.title} />
+
+                            <div>
+                                {produto.tags.map((tag) => (
+                                    <Tag key={tag}>{tag.toUpperCase()}</Tag>
+                                ))}
+                            </div>
+
+                            <h2>{produto.title}</h2>
+                            <p>{produto.description}</p>
+
+                            <Actions>
+                                <Price>R$ {produto.price.toFixed(2)}</Price>
+
+                                <QuantityControl>
+                                    <button>-</button>
+                                    <span>1</span>
+                                    <button>+</button>
+                                </QuantityControl>
+
+                                <AddToCartButton>
+                                    <img src={carrinho} alt="" />
+                                </AddToCartButton>
+
+                            </Actions>
+                        </ProductCard>
+                    ))}
+                </ProductsGrid>
+            </ContainerBody>
         </Container>
     )
 }
