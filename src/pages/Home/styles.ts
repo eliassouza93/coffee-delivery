@@ -20,7 +20,8 @@ export const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 55%;
+  width: 66%;
+ 
  
  
 `
@@ -161,7 +162,7 @@ export const HeroImage = styled.img`
 //container body
 export const ContainerBody = styled.div`
   padding: 2rem;
-  width: 58%;
+  width: 69%;
 
   h1 {
     font-size: 2rem;
@@ -235,17 +236,16 @@ export const QuantityControl = styled.div`
   align-items: center;
   justify-content: center;
   gap: 0.1rem;
-  background-color: ${({ theme }) => theme.colors['purple']};  
+  background-color: ${({ theme }) => theme.colors['purple-light']};  
   border-radius: 6px;
   padding: 0.5rem;
- 
+  max-width: 90px;
  
 
   button {
     background-color: transparent;
     color: ${({ theme }) => theme.colors.white};  
     font-size: 1rem;
-    font-weight: bold;
     border: none;
     cursor: pointer;
     width: 1.5rem;
@@ -255,6 +255,7 @@ export const QuantityControl = styled.div`
     justify-content: center;
     line-height: 0;
     color: black;
+    font-size: 30px;
 
     &:hover {
       background-color: ${({ theme }) => theme.colors['purple']};  
@@ -274,6 +275,10 @@ export const QuantityControl = styled.div`
     min-width: 1.5rem;
     text-align: center;
     color: black;
+    font-size: 16px;
+    max-width: 30px;
+    margin-right: 2px;
+   
   }
 `;
 
@@ -294,6 +299,6 @@ export const AddToCartButton = styled.button`
   img {
     width: 1.225rem;
     height: 1.225rem;
-    margin-bottom: -3px;
+    margin-bottom: -4px;
   }
 `;

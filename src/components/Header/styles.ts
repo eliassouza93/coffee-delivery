@@ -12,12 +12,13 @@ export const Container = styled.div`
 `
 export const Box = styled.div`
     background-color: aliceblue;
-    width: 47%;
-  
+    width: 54%;
+    
 
     img{
         width: 95px;
         height: 40px;
+        cursor: pointer;
     }
 `
 export const DivCarrinho = styled.div`
@@ -46,6 +47,7 @@ export const ContainerCarrinho = styled.div`
         justify-content: center;
         border-radius: 5px;
         margin: 0 12px;
+        cursor: pointer;
         
 
     }
@@ -53,6 +55,7 @@ export const ContainerCarrinho = styled.div`
     img{
         width: 22px;
         height: 22px;
+     
     }
    
 

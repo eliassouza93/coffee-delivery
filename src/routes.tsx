@@ -3,12 +3,10 @@ import { Home } from './pages/Home'
 import { Finalizado } from './pages/Finalizado'
 import { Header } from './components/Header'
 
-
-
 export function RouterProject() {
     return (
         <Router>
-            <Header/>
+            <Header />
             <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/finalizado' element={<Finalizado />} />

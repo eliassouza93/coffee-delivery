@@ -16,6 +16,7 @@ export function Header() {
     function handleHome (){
         navigate('/')
     }
+    
     return (
         <Container>
             <Box onClick={handleHome}>
