@@ -1,4 +1,4 @@
-import { Actions, Container, ContainerBody, HeroImage, HeroImageContainer, HeroSection, HeroSubtitle, HeroTextContainer, HeroTitle, InfoIcon1, InfoIcon2, InfoIcon3, InfoIcon4, InfoItem, InfoItems, InfoText, Price, ProductCard, ProductsGrid, QuantityControl, Tag,AddToCartButton } from "./styles";
+import { Actions, Container, ContainerBody, HeroImage, HeroImageContainer, HeroSection, HeroSubtitle, HeroTextContainer, HeroTitle, InfoIcon1, InfoIcon2, InfoIcon3, InfoIcon4, InfoItem, InfoItems, InfoText, Price, ProductCard, ProductsGrid, QuantityControl, Tag, AddToCartButton } from "./styles";
 import cofffe from '../../../images/coffeeGG.png';
 import carrinho from '../../../images//imgHome/carrinhoCompra.png';
 import relogio from '../../../images//imgHome/relogio.png';
@@ -7,11 +7,18 @@ import cafe from '../../../images//imgHome/cafe.png';
 import data from '../../../data.json';
 import { CartItem, CoffeeType } from "../../coffeeTyle";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Produtos: CoffeeType[] = data.coffees;
+const Produtos: CoffeeType[] = data.coffees
+
 
 export function Home() {
-    const [cart, setCart] = useState<CartItem[]>([]);
+    const navigate = useNavigate()
+    const [cart, setCart] = useState<CartItem[]>([])
+
+    function handleNavigate() {
+        navigate('/finalizado')
+    }
 
     const AddQuantity = (id: string) => {
         setCart(prevCart => {
@@ -105,8 +112,8 @@ export function Home() {
                                     <span>{cart.find(item => item.id === produto.id)?.quantity || 0}</span>
                                     <button onClick={() => AddQuantity(produto.id)}>+</button>
                                 </QuantityControl>
-                                <AddToCartButton>
-                                    <img src={carrinho}/>
+                                <AddToCartButton onClick={handleNavigate} >
+                                    <img src={carrinho} />
                                 </AddToCartButton>
                             </Actions>
                         </ProductCard>
