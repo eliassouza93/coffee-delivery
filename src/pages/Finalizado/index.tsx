@@ -49,7 +49,6 @@ export function Finalizado() {
             <InputUf placeholder="UF" />
           </InputGroup>
         </DivContainer>
-
         <div>
           <p><img src={pagament} /> Pagamento</p>
           <small>O pagamento é feito na entrega. Escolha a forma que deseja pagar</small>
@@ -59,6 +58,7 @@ export function Finalizado() {
             <button><img src={dinheiro} /> DINHEIRO</button>
           </PaymentOptions>
         </div>
+
       </Section>
 
       <Summary>
@@ -97,6 +97,11 @@ export function Finalizado() {
           </>
         )}
       </Summary>
+
+
+
     </Container>
+
+
   )
 }

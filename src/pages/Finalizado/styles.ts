@@ -2,9 +2,8 @@ import styled from 'styled-components'
 
 export const Container = styled.div`
   display: flex;
-  justify-content: space-between;
   padding: 2rem;
-  gap:20rem;
+  gap: 2rem;
 `
 
 export const Section = styled.section`
@@ -12,49 +11,43 @@ export const Section = styled.section`
   background: #f3f2f2;
   padding: 2rem;
   border-radius: 6px;
-  width: 640px;
-  height: 591px;
-  gap: 11rem;
-
- 
+  max-width: 640px;
+  margin-left: 285px;
 `
 
 export const Summary = styled(Section)`
   flex: 0.8;
   background: #f3f2f2;
-  
+  margin-left: 70px;
+  max-width: 448px;
+  height: 498px;
 `
 
 export const Title = styled.h2`
   font-size: 1.25rem;
   margin-bottom: 1rem;
-  
-
 `
 export const DivContainer = styled.div`
-    margin-bottom: '2rem';
-  
-    p{
-    margin-bottom: '0.5rem';
+  margin-bottom: 2rem;
+
+  p {
+    margin-bottom: 0.5rem;
     font-size: 16px;
-    
-   } 
-   small{
+  }
+  small {
     margin-left: 25px;
     font-size: 14px;
-   }
-   img{
+  }
+  img {
     width: 22px;
     height: 22px;
     margin-top: 10px;
-   }
-
-
+  }
 `
 
 export const InputGroup = styled.div`
   display: grid;
-  grid-template-columns: 200px 276px 60px; // <-- tamanhos exatos
+  grid-template-columns: 200px 348px;
   gap: 1rem 0.75rem;
 
   & > input:nth-child(1) {
@@ -70,7 +63,7 @@ export const InputGroup = styled.div`
   }
 
   & > input:nth-child(4) {
-    grid-column: 2 / 4;
+    grid-column: 2;
   }
 
   & > input:nth-child(5) {
@@ -85,19 +78,6 @@ export const InputGroup = styled.div`
     grid-column: 3;
   }
 `
-
-
-
-export const InputRua = styled.input`
-  padding: 0.75rem;
-  border-radius: 4px;
-  border: 1px solid #e6e5e5;
-  background: #eeeded;
-  width: 560px;
-  height: 42px;
- 
-`
-
 export const InputCep = styled.input`
   padding: 0.75rem;
   border-radius: 4px;
@@ -105,9 +85,21 @@ export const InputCep = styled.input`
   background: #eeeded;
   width: 200px;
   height: 42px;
+`;
 
+export const InputRua = styled.input`
+  padding: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #e6e5e5;
+  background: #eeeded;
+  width: 100%;
+  height: 42px;
+`;
 
-`
+export const NumeroComplementoContainer = styled.div`
+  display: flex;
+  gap: 0.75rem;
+`;
 
 export const InputNumero = styled.input`
   padding: 0.75rem;
@@ -116,7 +108,7 @@ export const InputNumero = styled.input`
   background: #eeeded;
   width: 200px;
   height: 42px;
-`
+`;
 
 export const InputComplemento = styled.input`
   padding: 0.75rem;
@@ -125,8 +117,13 @@ export const InputComplemento = styled.input`
   background: #eeeded;
   width: 348px;
   height: 42px;
-  
-`
+`;
+
+export const BairroCidadeUfContainer = styled.div`
+  display: flex;
+  gap: 0.75rem;
+  align-items: center;
+`;
 
 export const InputBairro = styled.input`
   padding: 0.75rem;
@@ -135,8 +132,7 @@ export const InputBairro = styled.input`
   background: #eeeded;
   width: 200px;
   height: 42px;
-  
-`
+`;
 
 export const InputCidade = styled.input`
   padding: 0.75rem;
@@ -145,8 +141,8 @@ export const InputCidade = styled.input`
   background: #eeeded;
   width: 276px;
   height: 42px;
- 
-`
+  margin-right: -10px;
+`;
 
 export const InputUf = styled.input`
   padding: 0.75rem;
@@ -155,24 +151,21 @@ export const InputUf = styled.input`
   background: #eeeded;
   width: 60px;
   height: 42px;
+  margin-left: -70px;
 `
-
 
 export const PaymentOptions = styled.div`
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   margin-top: 1rem;
- 
 
-  img{
+  img {
     width: 16px;
     height: 16px;
     margin-bottom: -3px;
-   
   }
 
   button {
-    
     flex: 1;
     background: #e6e5e5;
     border: none;
