@@ -5,6 +5,7 @@ export type CartItem = {
   title: string
   price: number
   quantity: number
+  image:string
 }
 
 export type CoffeeType = {
@@ -39,7 +40,13 @@ export function CartProvider({ children }: { children: ReactNode }) {
             : item
         )
       }
-      return [...prev, { id: coffee.id, title: coffee.title, price: coffee.price, quantity: 1 }]
+      return [...prev, {
+        id: coffee.id,
+        title: coffee.title,
+        price: coffee.price,
+        quantity: 1,
+        image: coffee.image 
+      }]
     })
   }
 
