@@ -1,4 +1,4 @@
-import { useCart } from '../../contexts/CartProvider'
+import { useAddress, useCart } from '../../contexts/CartProvider'
 import {
   Container,
   Section,
@@ -35,17 +35,29 @@ export function Finished() {
   const entrega = 3.5
   const total = totalItems + entrega
 
-  function NavigateDelivery(){
+  const [cep, setCep] = useState('')
+  const [rua, setRua] = useState('')
+  const [numero, setNumero] = useState('')
+  const [complemento, setComplemento] = useState('')
+  const [bairro, setBairro] = useState('')
+  const [cidade, setCidade] = useState('')
+  const [uf, setUf] = useState('')
+
+  const { setAddress } = useAddress()
+
+  const NavigateDelivery = () => {
+    setAddress({
+      cep,
+      rua,
+      numero,
+      complemento,
+      bairro,
+      cidade,
+      uf,
+    })
+  
     navigate('/Delivery')
   }
-  const[cep, setCep] = useState('')
-  const[rua, setRua] = useState('')
-  const[numero, setNumero] = useState('')
-  const[complemento, setComplemento] = useState('')
-  const[bairro, setBairro] = useState('')
-  const[cidade, setCidade] = useState('')
-  const[uf, setUf] = useState('')
-
 
   return (
     <Container>
@@ -57,13 +69,13 @@ export function Finished() {
           <small> Informe o endereço onde deseja receber seu pedido</small>
           <InputGroup style={{ marginTop: '1rem' }}>
 
-            <InputCep placeholder="CEP" />
-            <InputRua placeholder="Rua" style={{ gridColumn: 'span 2' }} />
-            <InputNumero placeholder="Número" />
-            <InputComplemento placeholder="Complemento" />
-            <InputBairro placeholder="Bairro" />
-            <InputCidade placeholder="Cidade" />
-            <InputUf placeholder="UF" />
+            <InputCep placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
+            <InputRua placeholder="Rua"  value={rua} onChange={(e) => setRua(e.target.value)} />
+            <InputNumero placeholder="Número" value={numero} onChange={(e) => setNumero(e.target.value)} />
+            <InputComplemento placeholder="Complemento" value={complemento} onChange={(e) => setComplemento(e.target.value)} />
+            <InputBairro placeholder="Bairro" value={bairro} onChange={(e) => setBairro(e.target.value)} />
+            <InputCidade placeholder="Cidade" value={cidade} onChange={(e) => setCidade(e.target.value)} />
+            <InputUf placeholder="UF" value={uf} onChange={(e) => setUf(e.target.value)} />
 
           </InputGroup>
         </DivContainer>

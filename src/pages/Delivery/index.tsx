@@ -2,6 +2,7 @@ import illustration from '../../../images/delivery/Illustration.png'
 import hors from '../../../images/delivery/hors.png'
 import local from '../../../images/delivery/local.png'
 import money from '../../../images/delivery/money.png'
+import { useAddress } from '../../contexts/CartProvider'
 
 import {
     Container,
@@ -15,6 +16,8 @@ import {
 } from './styles'
 
 export function Delivery() {
+    const {address} = useAddress()
+
     return (
         <Container>
             <Box>
@@ -29,9 +32,9 @@ export function Delivery() {
                             <Icon src={local} alt="Local" />
                             <TextGroup>
                                 <span>
-                                    Entrega em <strong>Rua João Daniel Martinelli, 102</strong>
+                                    Entrega em <strong> {address.rua} {address.numero} </strong>
                                 </span>
-                                <span>Farrapos - Porto Alegre, RS</span>
+                                <span>{address.bairro} - {address.cidade}, {address.uf} </span>
                             </TextGroup>
                         </InfoItem>
 

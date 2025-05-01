@@ -8,7 +8,7 @@ function App() {
   return (
     <ThemeProvider theme={defaultTheme}>
       <GlobalStyle />
-      <CartProvider> {/* Aplicando o CartProvider apenas aqui */}
+      <CartProvider>  
         <RouterProject />
       </CartProvider>
     </ThemeProvider>

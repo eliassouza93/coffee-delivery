@@ -5,7 +5,7 @@ export type CartItem = {
   title: string
   price: number
   quantity: number
-  image:string
+  image: string
 }
 
 export type CoffeeType = {
@@ -45,7 +45,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
         title: coffee.title,
         price: coffee.price,
         quantity: 1,
-        image: coffee.image 
+        image: coffee.image
       }]
     })
   }
@@ -83,4 +83,44 @@ export function CartProvider({ children }: { children: ReactNode }) {
 
 export function useCart() {
   return useContext(CartContext)
+}
+
+
+interface AddressData {
+  cep: string
+  rua: string
+  numero: string
+  complemento?: string
+  bairro: string
+  cidade: string
+  uf: string
+}
+
+interface AddressContextType {
+  address: AddressData
+  setAddress: (data: AddressData) => void // Certifique-se que está escrito corretamente aqui
+}
+
+const AddressContext = createContext({} as AddressContextType)
+
+export function AddressProvider({ children }: { children: ReactNode }) {
+  const [address, setAddress] = useState<AddressData>({
+    cep: '',
+    rua: '',
+    numero: '',
+    complemento: '',
+    bairro: '',
+    cidade: '',
+    uf: ''
+  })
+
+  return (
+    <AddressContext.Provider value={{ address, setAddress }}>
+      {children}
+    </AddressContext.Provider>
+  )
+}
+
+export function useAddress() {
+  return useContext(AddressContext)
 }
