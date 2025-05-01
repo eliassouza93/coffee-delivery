@@ -73,6 +73,7 @@ export const ImageWrapper = styled.div`
   img {
     max-width: 100%;
     margin-top:90px;
+    margin-left: 150px;
      
   }
 `

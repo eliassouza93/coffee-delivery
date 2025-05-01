@@ -44,8 +44,14 @@ export function Finished() {
   const [uf, setUf] = useState('')
 
   const { setAddress } = useAddress()
-
   const NavigateDelivery = () => {
+    if (
+      !cep || !rua || !numero || !bairro || !cidade || !uf
+    ) {
+      alert("Por favor, preencha todos os campos obrigatórios.")
+      return
+    }
+  
     setAddress({
       cep,
       rua,
@@ -55,7 +61,7 @@ export function Finished() {
       cidade,
       uf,
     })
-  
+
     navigate('/delivery')
   }
 
@@ -70,7 +76,7 @@ export function Finished() {
           <InputGroup style={{ marginTop: '1rem' }}>
 
             <InputCep placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
-            <InputRua placeholder="Rua"  value={rua} onChange={(e) => setRua(e.target.value)} />
+            <InputRua placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)} />
             <InputNumero placeholder="Número" value={numero} onChange={(e) => setNumero(e.target.value)} />
             <InputComplemento placeholder="Complemento" value={complemento} onChange={(e) => setComplemento(e.target.value)} />
             <InputBairro placeholder="Bairro" value={bairro} onChange={(e) => setBairro(e.target.value)} />
