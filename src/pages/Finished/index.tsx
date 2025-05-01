@@ -24,7 +24,7 @@ import debito from '../../../images/finalizado/debito.png'
 import dinheiro from '../../../images/finalizado/dinheiro.png'
 import pagament from '../../../images/finalizado/pagament.png'
 
-export function Finalizado() {
+export function Finished() {
   const { cart } = useCart()
 
   const totalItems = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
