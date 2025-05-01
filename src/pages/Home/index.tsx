@@ -48,7 +48,6 @@ export function Home() {
         <HeroTextContainer>
           <HeroTitle>Encontre o café perfeito para qualquer hora do dia</HeroTitle>
           <HeroSubtitle>Com o Coffee Delivery você recebe seu café onde estiver, a qualquer hora</HeroSubtitle>
-
           <InfoItems>
             <InfoItem>
               <InfoIcon1>

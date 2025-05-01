@@ -92,14 +92,10 @@ export function Finalizado() {
                 <span>R$ {total.toFixed(2)}</span>
               </div>
             </PriceSummary>
-
             <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
           </>
         )}
       </Summary>
-
-
-
     </Container>
 
 
