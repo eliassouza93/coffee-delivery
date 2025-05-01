@@ -23,13 +23,29 @@ import credito from '../../../images/finalizado/credito.png'
 import debito from '../../../images/finalizado/debito.png'
 import dinheiro from '../../../images/finalizado/dinheiro.png'
 import pagament from '../../../images/finalizado/pagament.png'
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react'
 
 export function Finished() {
   const { cart } = useCart()
 
+  const navigate = useNavigate()
+
   const totalItems = cart.reduce((sum, item) => sum + item.price * item.quantity, 0)
   const entrega = 3.5
   const total = totalItems + entrega
+
+  function NavigateDelivery(){
+    navigate('/Delivery')
+  }
+  const[cep, setCep] = useState('')
+  const[rua, setRua] = useState('')
+  const[numero, setNumero] = useState('')
+  const[complemento, setComplemento] = useState('')
+  const[bairro, setBairro] = useState('')
+  const[cidade, setCidade] = useState('')
+  const[uf, setUf] = useState('')
+
 
   return (
     <Container>
@@ -40,6 +56,7 @@ export function Finished() {
           <p> <img src={localization} /> Endereço de Entrega</p>
           <small> Informe o endereço onde deseja receber seu pedido</small>
           <InputGroup style={{ marginTop: '1rem' }}>
+
             <InputCep placeholder="CEP" />
             <InputRua placeholder="Rua" style={{ gridColumn: 'span 2' }} />
             <InputNumero placeholder="Número" />
@@ -47,6 +64,7 @@ export function Finished() {
             <InputBairro placeholder="Bairro" />
             <InputCidade placeholder="Cidade" />
             <InputUf placeholder="UF" />
+
           </InputGroup>
         </DivContainer>
         <div>
@@ -92,7 +110,7 @@ export function Finished() {
                 <span>R$ {total.toFixed(2)}</span>
               </div>
             </PriceSummary>
-            <ConfirmButton>CONFIRMAR PEDIDO</ConfirmButton>
+            <ConfirmButton onClick={NavigateDelivery}>CONFIRMAR PEDIDO</ConfirmButton>
           </>
         )}
       </Summary>
