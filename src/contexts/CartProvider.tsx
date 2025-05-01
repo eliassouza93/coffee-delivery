@@ -98,7 +98,7 @@ interface AddressData {
 
 interface AddressContextType {
   address: AddressData
-  setAddress: (data: AddressData) => void // Certifique-se que está escrito corretamente aqui
+  setAddress: (data: AddressData) => void  
 }
 
 const AddressContext = createContext({} as AddressContextType)

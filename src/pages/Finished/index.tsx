@@ -56,7 +56,7 @@ export function Finished() {
       uf,
     })
   
-    navigate('/Delivery')
+    navigate('/delivery')
   }
 
   return (
