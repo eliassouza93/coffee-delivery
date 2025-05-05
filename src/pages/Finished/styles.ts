@@ -237,3 +237,8 @@ export const ConfirmButton = styled.button`
     background-color: #c47f17;
   }
 `
+export const Digitou = styled.div`
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+`

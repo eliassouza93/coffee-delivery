@@ -34,29 +34,44 @@ export const DivCarrinho = styled.div`
         justify-content: center;
 `
 export const ContainerCarrinho = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+
+  div {
+    background-color: ${(props) => props.theme.colors["yellow-light"]};
+    height: 38px;
+    width: 38px;
     display: flex;
-    justify-content: center;
     align-items: center;
- 
-    div{
-        background-color: ${(props => props.theme.colors["yellow-light"])};
-        height:38px;
-        width:38px ;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        border-radius: 5px;
-        margin: 0 12px;
-        cursor: pointer;
-        
+    justify-content: center;
+    border-radius: 5px;
+    margin: 0 12px;
+    cursor: pointer;
+    position: relative;
+  }
 
-    }
+  img {
+    width: 22px;
+    height: 22px;
+  }
 
-    img{
-        width: 22px;
-        height: 22px;
-     
-    }
-   
-
+  span {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: ${(props) => props.theme.colors['yellow-dark']};
+  color: white;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: bold;
+  padding: 12px;
+  }
 `
+

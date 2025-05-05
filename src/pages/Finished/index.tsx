@@ -16,7 +16,8 @@ import {
   InputComplemento,
   InputBairro,
   InputCidade,
-  InputUf
+  InputUf,
+  Digitou
 } from './styles'
 import localization from '../../../images/finalizado/localisa.png'
 import credito from '../../../images/finalizado/credito.png'
@@ -44,12 +45,13 @@ export function Finished() {
   const [uf, setUf] = useState('')
 
   const { setAddress } = useAddress()
+  const [digitou, setDigitou] = useState('')
   const NavigateDelivery = () => {
     if (
       !cep || !rua || !numero || !bairro || !cidade || !uf
     ) {
-      alert("Por favor, preencha todos os campos obrigatórios.")
-      return
+      setDigitou('Preencha os campos')
+      return  
     }
   
     setAddress({
@@ -75,7 +77,7 @@ export function Finished() {
           <small> Informe o endereço onde deseja receber seu pedido</small>
           <InputGroup style={{ marginTop: '1rem' }}>
 
-            <InputCep placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
+            <InputCep  placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
             <InputRua placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)} />
             <InputNumero placeholder="Número" value={numero} onChange={(e) => setNumero(e.target.value)} />
             <InputComplemento placeholder="Complemento" value={complemento} onChange={(e) => setComplemento(e.target.value)} />
@@ -129,6 +131,7 @@ export function Finished() {
               </div>
             </PriceSummary>
             <ConfirmButton onClick={NavigateDelivery}>CONFIRMAR PEDIDO</ConfirmButton>
+            <Digitou> {digitou} </Digitou>
           </>
         )}
       </Summary>

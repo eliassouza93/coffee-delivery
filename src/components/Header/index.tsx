@@ -3,21 +3,25 @@ import logo from '../../../images/imgHome/Logo (1).png'
 import licalization from '../../../images/imgHome/licalization.png'
 import carrinho from '../../../images/imgHome/carrinho.png'
 import { useNavigate } from "react-router-dom";
+import { useCart } from "../../contexts/CartProvider";
 
 
 
 export function Header() {
-
+    const cart = useCart()
     const navigate = useNavigate()
-    
-    function handleNavigate(){
+
+    function handleNavigate() {
         navigate('/finalizado')
     }
-    function handleHome (){
+    function handleHome() {
         navigate('/')
     }
-    
-    
+    function quantityCount() {
+        return cart.cart.reduce((acc, item) => acc + item.quantity, 0)
+    }
+
+
     return (
         <Container>
             <Box onClick={handleHome}>
@@ -28,7 +32,12 @@ export function Header() {
                 <span>Florianópolis,SC</span>
             </DivCarrinho>
             <ContainerCarrinho>
-                <div onClick={handleNavigate}>
+                <div onClick={handleNavigate} style={{ position: 'relative' }}>
+                    {quantityCount() > 0 && (
+                        <span>
+                            {quantityCount()}
+                        </span>
+                    )}
                     <img src={carrinho} />
                 </div>
             </ContainerCarrinho>
