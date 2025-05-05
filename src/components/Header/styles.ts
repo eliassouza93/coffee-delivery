@@ -12,9 +12,8 @@ export const Container = styled.div`
 `
 export const Box = styled.div`
     background-color: aliceblue;
-    width: 54%;
+    width: 43%;
     
-
     img{
         width: 95px;
         height: 40px;

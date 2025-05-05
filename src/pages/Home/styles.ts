@@ -20,9 +20,7 @@ export const HeroSection = styled.section`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 66%;
- 
- 
+  width: 52%;
  
 `
 
@@ -162,7 +160,8 @@ export const HeroImage = styled.img`
 //container body
 export const ContainerBody = styled.div`
   padding: 2rem;
-  width: 69%;
+  width: 55%;
+  margin-top: 90px;
 
   h1 {
     font-size: 2rem;

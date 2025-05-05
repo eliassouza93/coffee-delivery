@@ -173,9 +173,22 @@ export const PaymentOptions = styled.div`
     border-radius: 6px;
     font-size: 0.875rem;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-transform: uppercase;
+    transition: background 0.2s;
+    background: #e6e5e5;
+    border: 1px solid #8047f8;
 
     &:hover {
       background: #d7d5d5;
+    }
+
+    &.selected {
+      background: ${(props) => props.theme.colors['purple-dark']};
+      
     }
   }
 `

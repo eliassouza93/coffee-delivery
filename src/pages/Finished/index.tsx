@@ -46,14 +46,15 @@ export function Finished() {
 
   const { setAddress } = useAddress()
   const [digitou, setDigitou] = useState('')
+  const { clearCart } = useCart()
   const NavigateDelivery = () => {
     if (
       !cep || !rua || !numero || !bairro || !cidade || !uf
     ) {
       setDigitou('Preencha os campos')
-      return  
+      return
     }
-  
+
     setAddress({
       cep,
       rua,
@@ -63,10 +64,11 @@ export function Finished() {
       cidade,
       uf,
     })
-
+    clearCart()
     navigate('/delivery')
   }
-
+  const [selectedPayment, setSelectedPayment] = useState<string>('')
+  
   return (
     <Container>
       <Section>
@@ -77,7 +79,7 @@ export function Finished() {
           <small> Informe o endereço onde deseja receber seu pedido</small>
           <InputGroup style={{ marginTop: '1rem' }}>
 
-            <InputCep  placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
+            <InputCep placeholder="CEP" value={cep} onChange={(e) => setCep(e.target.value)} />
             <InputRua placeholder="Rua" value={rua} onChange={(e) => setRua(e.target.value)} />
             <InputNumero placeholder="Número" value={numero} onChange={(e) => setNumero(e.target.value)} />
             <InputComplemento placeholder="Complemento" value={complemento} onChange={(e) => setComplemento(e.target.value)} />
@@ -91,12 +93,28 @@ export function Finished() {
           <p><img src={pagament} /> Pagamento</p>
           <small>O pagamento é feito na entrega. Escolha a forma que deseja pagar</small>
           <PaymentOptions>
-            <button><img src={credito} /> CARTÃO CRÉDITO</button>
-            <button><img src={debito} /> CARTÃO DÉBITO</button>
-            <button><img src={dinheiro} /> DINHEIRO</button>
+            <button
+              onClick={() => setSelectedPayment('credito')}
+              className={selectedPayment === 'credito' ? 'selected' : ''}
+            >
+              <img src={credito} /> CARTÃO CRÉDITO
+            </button>
+
+            <button
+              onClick={() => setSelectedPayment('debito')}
+              className={selectedPayment === 'debito' ? 'selected' : ''}
+            >
+              <img src={debito} /> CARTÃO DÉBITO
+            </button>
+
+            <button
+              onClick={() => setSelectedPayment('dinheiro')}
+              className={selectedPayment === 'dinheiro' ? 'selected' : ''}
+            >
+              <img src={dinheiro} /> DINHEIRO
+            </button>
           </PaymentOptions>
         </div>
-
       </Section>
 
       <Summary>
