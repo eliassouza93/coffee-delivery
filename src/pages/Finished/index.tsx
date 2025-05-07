@@ -73,7 +73,6 @@ export function Finished() {
     <Container>
       <Section>
         <Title>Complete seu pedido</Title>
-
         <DivContainer>
           <p> <img src={localization} /> Endereço de Entrega</p>
           <small> Informe o endereço onde deseja receber seu pedido</small>
@@ -86,7 +85,6 @@ export function Finished() {
             <InputBairro placeholder="Bairro" value={bairro} onChange={(e) => setBairro(e.target.value)} />
             <InputCidade placeholder="Cidade" value={cidade} onChange={(e) => setCidade(e.target.value)} />
             <InputUf placeholder="UF" value={uf} onChange={(e) => setUf(e.target.value)} />
-
           </InputGroup>
         </DivContainer>
         <div>

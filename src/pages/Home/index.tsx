@@ -75,7 +75,6 @@ export function Home() {
             </InfoItem>
           </InfoItems>
         </HeroTextContainer>
-
         <HeroImageContainer>
           <HeroImage src={cofffe} alt="Coffee" />
         </HeroImageContainer>
