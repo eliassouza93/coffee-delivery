@@ -1,5 +1,6 @@
 import { useAddress, useCart } from '../../contexts/CartProvider'
 import {
+  RemoveItemContainer,
   Container,
   Section,
   Summary,
@@ -23,9 +24,11 @@ import localization from '../../../images/finalizado/localisa.png'
 import credito from '../../../images/finalizado/credito.png'
 import debito from '../../../images/finalizado/debito.png'
 import dinheiro from '../../../images/finalizado/dinheiro.png'
+import lixeira from '../../../images/finalizado/lixeira.png'
 import pagament from '../../../images/finalizado/pagament.png'
 import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
+
 
 export function Finished() {
   const { cart, increaseQuantity, decreaseQuantity,removeFromCart } = useCart()
@@ -114,7 +117,7 @@ export function Finished() {
           </PaymentOptions>
         </div>
       </Section>
-      
+
       <Summary>
         <Title>Cafés selecionados</Title>
         {cart.length === 0 ? (
@@ -128,7 +131,7 @@ export function Finished() {
                 <div className="details">
                   <p>{item.title}</p>
 
-                  <div className="actions">
+                  <RemoveItemContainer className="actions">
                     <div className="quantity">
 
                       <button onClick={() => decreaseQuantity(item.id)}>-</button>
@@ -136,9 +139,9 @@ export function Finished() {
                       <button onClick={() => increaseQuantity(item.id)}>+</button>
                     </div>
                     <button className="remove" onClick={() => removeFromCart(item.id)}>
-                      🗑 REMOVER
+                      <img id='lixeira' src={lixeira}/> <p>REMOVER</p>
                     </button>
-                  </div>
+                  </RemoveItemContainer>
                 </div>
 
                 <div className="price">R$ {(item.price * item.quantity).toFixed(2)}</div>

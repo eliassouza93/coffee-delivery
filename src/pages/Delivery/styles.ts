@@ -10,9 +10,12 @@ export const Container = styled.main`
   align-items: center;
   justify-content: center;
   margin-top: 83px;
+
 `
 export const Box = styled.div`
     display: flex;
+    max-width: 55%;
+  
 `
 
 export const Title = styled.div`

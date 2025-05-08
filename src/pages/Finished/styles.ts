@@ -252,7 +252,24 @@ export const CartItem = styled.div`
     white-space: nowrap;
   }
 `
+export const RemoveItemContainer = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
 
+  img {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  p {
+    font-size: 0.875rem;
+    color: #888;
+    margin-left: -10px;
+    margin-top: 10px;
+  }
+`;
 export const PriceSummary = styled.div`
   margin-top: 1.5rem;
   font-size: 0.875rem;
