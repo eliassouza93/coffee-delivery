@@ -195,26 +195,61 @@ export const PaymentOptions = styled.div`
 
 export const CartItem = styled.div`
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
-  margin-bottom: 1rem;
-  border-bottom: 1px solid #e6e5e5;
-  padding-bottom: 1rem;
+  border-bottom: 1px solid #eee;
+  padding: 1rem 0;
 
   img {
-    width: 48px;
-    height: 48px;
-    border-radius: 50%;
+    width: 64px;
+    height: 64px;
     margin-right: 1rem;
   }
 
-  .info {
+  .details {
     flex: 1;
-    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+
+    p {
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .actions {
+      display: flex;
+      gap: 0.5rem;
+
+      .quantity {
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+
+        button {
+          background: #eee;
+          border: none;
+          padding: 0.25rem;
+          cursor: pointer;
+        }
+      }
+
+      .remove {
+        background: #eee;
+        border: none;
+        padding: 0.25rem 0.5rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        color: #8047F8;
+        font-size: 0.75rem;
+      }
+    }
   }
 
   .price {
     font-weight: bold;
+    white-space: nowrap;
   }
 `
 

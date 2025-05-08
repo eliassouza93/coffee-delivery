@@ -22,6 +22,7 @@ type CartContextType = {
   addToCart: (coffee: CoffeeType) => void
   increaseQuantity: (id: string) => void
   decreaseQuantity: (id: string) => void
+  removeFromCart: (id: string) => void
   clearCart: () => void
 }
 
@@ -71,13 +72,18 @@ export function CartProvider({ children }: { children: ReactNode }) {
       )
     )
   }
+  function removeFromCart(id: string) {
+    setCart(prev => prev.filter(item => item.id !== id));
+  }
+
+
 
   function clearCart() {
     setCart([])
   }
 
   return (
-    <CartContext.Provider value={{ cart, addToCart, increaseQuantity, decreaseQuantity, clearCart }}>
+    <CartContext.Provider value={{ cart, addToCart, increaseQuantity, decreaseQuantity, clearCart, removeFromCart }}>
       {children}
     </CartContext.Provider>
   )
@@ -100,7 +106,7 @@ interface AddressData {
 
 interface AddressContextType {
   address: AddressData
-  setAddress: (data: AddressData) => void  
+  setAddress: (data: AddressData) => void
 }
 
 const AddressContext = createContext({} as AddressContextType)

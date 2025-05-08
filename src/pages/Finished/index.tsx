@@ -28,7 +28,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 export function Finished() {
-  const { cart } = useCart()
+  const { cart, increaseQuantity, decreaseQuantity,removeFromCart } = useCart()
 
   const navigate = useNavigate()
 
@@ -68,7 +68,7 @@ export function Finished() {
     navigate('/delivery')
   }
   const [selectedPayment, setSelectedPayment] = useState<string>('')
-  
+ 
   return (
     <Container>
       <Section>
@@ -114,7 +114,7 @@ export function Finished() {
           </PaymentOptions>
         </div>
       </Section>
-
+      
       <Summary>
         <Title>Cafés selecionados</Title>
         {cart.length === 0 ? (
@@ -124,10 +124,23 @@ export function Finished() {
             {cart.map(item => (
               <CartItem key={item.id}>
                 <img src={item.image} alt={item.title} />
-                <div className="info">
+
+                <div className="details">
                   <p>{item.title}</p>
-                  <small>{item.quantity}x</small>
+
+                  <div className="actions">
+                    <div className="quantity">
+
+                      <button onClick={() => decreaseQuantity(item.id)}>-</button>
+                      <span>{item.quantity}</span>
+                      <button onClick={() => increaseQuantity(item.id)}>+</button>
+                    </div>
+                    <button className="remove" onClick={() => removeFromCart(item.id)}>
+                      🗑 REMOVER
+                    </button>
+                  </div>
                 </div>
+
                 <div className="price">R$ {(item.price * item.quantity).toFixed(2)}</div>
               </CartItem>
             ))}
