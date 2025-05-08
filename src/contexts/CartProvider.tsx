@@ -1,4 +1,4 @@
-import React, { createContext, ReactNode, useContext, useState } from 'react'
+import { createContext, ReactNode, useContext, useState } from 'react'
 
 export type CartItem = {
   id: string
@@ -89,6 +89,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useCart() {
   return useContext(CartContext)
 }
@@ -129,6 +130,7 @@ export function AddressProvider({ children }: { children: ReactNode }) {
   )
 }
 
+// eslint-disable-next-line react-refresh/only-export-components
 export function useAddress() {
   return useContext(AddressContext)
 }
