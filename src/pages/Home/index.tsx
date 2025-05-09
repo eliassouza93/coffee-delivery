@@ -79,23 +79,19 @@ export function Home() {
           <HeroImage src={cofffe} alt="Coffee" />
         </HeroImageContainer>
       </HeroSection>
-
       <ContainerBody>
         <h1>Nossos cafés</h1>
         <ProductsGrid>
           {Produtos.map(produto => (
             <ProductCard key={produto.id}>
               <img src={produto.image} alt={produto.title} />
-
               <div>
                 {produto.tags.map(tag => (
                   <Tag key={tag}>{tag.toUpperCase()}</Tag>
                 ))}
               </div>
-
               <h2>{produto.title}</h2>
               <p>{produto.description}</p>
-
               <Actions>
                 <Price>R$ {produto.price.toFixed(2)}</Price>
                 <QuantityControl>
