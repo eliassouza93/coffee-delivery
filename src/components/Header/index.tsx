@@ -5,7 +5,7 @@ import carrinho from '../../../images/imgHome/carrinho.png'
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartProvider";
 
-
+console
 
 export function Header() {
     const cart = useCart()
