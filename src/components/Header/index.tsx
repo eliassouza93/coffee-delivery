@@ -7,6 +7,7 @@ import { useCart } from "../../contexts/CartProvider";
 
 console
 
+console.log('teste')
 export function Header() {
     const cart = useCart()
     const navigate = useNavigate()
