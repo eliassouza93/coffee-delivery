@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartProvider";
 
 console
+console.log('d')
 
 console.log('teste')
 export function Header() {
