@@ -5,7 +5,7 @@ import carrinho from '../../../images/imgHome/carrinho.png'
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../contexts/CartProvider";
 
-console
+ 
 console.log('d')
 
 console.log('teste')
