@@ -30,6 +30,7 @@ import { useNavigate } from 'react-router-dom'
 import { useState } from 'react'
 
 console.log('')
+console.log('')
 export function Finished() {
   const { cart, increaseQuantity, decreaseQuantity,removeFromCart } = useCart()
 
