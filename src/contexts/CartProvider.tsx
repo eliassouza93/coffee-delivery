@@ -134,3 +134,5 @@ export function AddressProvider({ children }: { children: ReactNode }) {
 export function useAddress() {
   return useContext(AddressContext)
 }
+
+console.log('teste')
