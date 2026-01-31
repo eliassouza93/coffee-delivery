@@ -17,7 +17,6 @@ sdafgsdfg
   body, input, textarea, button {
     ${mixins.fonts.textM};
   }
-
   button {
     border: none;
     cursor: pointer;
