@@ -1,5 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
-import { mixins } from './mix'  
+import { createGlobalStyle } from "styled-components";
+import { mixins } from "./mix";
 
 export const GlobalStyle = createGlobalStyle`
   * {
@@ -10,7 +10,7 @@ export const GlobalStyle = createGlobalStyle`
 
   body {
     background: ${(props) => props.theme.colors.background};
-    color: ${(props) => props.theme.colors['base-text']};
+    color: ${(props) => props.theme.colors["base-text"]};
     -webkit-font-smoothing: antialiased;
   }
 sdafgsdfg
@@ -22,4 +22,4 @@ sdafgsdfg
     cursor: pointer;
 
   }
-`
+`;
